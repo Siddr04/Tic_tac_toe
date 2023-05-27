@@ -1,5 +1,9 @@
 const gameBoard = document.querySelector('#gameboard');
 const infoDisplay = document.querySelector('#info');
+const resetButton = document.querySelector('#resetButton');
+
+
+
 const startCells = ["", "", "", "", "", "", "", "", ""];
 const cellElements = [];
 
@@ -72,4 +76,18 @@ function checkScore() {
       return;
     }
   });
+}
+resetButton.addEventListener('click', resetGame);
+
+function resetGame() {
+
+  gameBoard.innerHTML = '';
+
+
+  startCells.fill("");
+
+  turn = "circle";
+  infoDisplay.textContent = `It is ${turn}'s turn`;
+
+  createGameBoard();
 }
